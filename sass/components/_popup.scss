@@ -1,0 +1,72 @@
+.popup {
+    background: rgba($warna-hitam, .8);
+    height: 100vh;
+    width: 100%;
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s all;
+
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+    &:target &-box {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    &-box {
+        @include responsive(phone){
+            width: 100%;
+        }
+        width: 75%;
+        background: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(.1);
+        border-radius: 5px;
+        box-shadow: 0 1rem 2rem rgba($warna-hitam, .2);
+        display: table;
+        overflow: hidden;
+        transition: .3s all;
+    }
+    &-kiri {
+        background: orange;
+        display: table-cell;
+        width: 33.333333%;
+    }
+    &-kanan {
+        vertical-align: middle;
+        padding: 3rem;
+        background: lightcoral;
+        display: table-cell;
+        width: 66.666667%;
+        position: relative;
+    }
+    &-gambar {
+        width: 100%;
+        display: block;
+    }
+    &-text {
+        font-size: 1.4rem;
+        column-count: 2;
+        column-gap: 4rem;
+    }
+    &-close {
+        position: absolute;
+        top: 3rem;
+        right: 3rem;
+        font-size: 2rem;
+        cursor: pointer;
+        text-decoration: none;
+        color: #333;
+        transition: .4s all;
+        &:hover {
+            color: $warna-hijau-medium;
+        }
+    }
+}

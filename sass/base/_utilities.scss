@@ -1,0 +1,21 @@
+.text-center {
+    text-align: center;
+}
+
+.m-btn-lg {
+    margin-bottom: 8rem !important;
+    @include responsive(tablet-portrait){
+        margin-bottom: 4rem !important;
+    }
+}
+
+.m-btn-md {
+    margin-bottom: 4rem !important;
+    @include responsive(tablet-portrait){
+        margin-bottom: 3rem;
+    }
+}
+
+.m-btn-sm {
+    margin-bottom: 2rem !important;
+}

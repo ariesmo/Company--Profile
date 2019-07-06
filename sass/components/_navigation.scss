@@ -1,0 +1,121 @@
+.navigation {
+    &-checkbox {
+
+    }
+    &-button {
+        display: inline-block;
+        height: 7rem;
+        width: 7rem;
+        position: fixed;
+        top: 3.5rem;
+        right: 3.5rem;
+        background: $warna-putih;
+        z-index: 200;
+        border-radius: 100%;
+        box-shadow: 0 1rem 2rem rgba($warna-hitam, .3);
+        cursor: pointer;
+        text-align: center;
+    }
+    &-background {
+        display: inline-block;
+        height: 6rem;
+        width: 6rem;
+        position: fixed;
+        top: 4rem;
+        right: 4rem;
+        background: radial-gradient($warna-hijau-muda, $warna-hijau-tua);
+        z-index: 100;
+        border-radius: 100%;
+        transition: .8s all cubic-bezier(0.86, 0, 0.07, 1);
+    }
+    &-nav {
+        position: fixed;
+        z-index: 150;
+        height: 100vh;
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+        width: 0;
+        transition: .8s all cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    &-list {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        list-style: none;
+        text-align: center;
+    }
+    &-item {
+        margin: 1rem;
+    }
+    &-link {
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 3rem;
+        color: $warna-putih;
+        display: inline-block;
+        font-weight: 300;
+        background: linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
+        background-position: 0%;
+        background-size: 230%;
+        padding: 1rem 2rem;
+        transition: .5s all;
+        &:hover {
+            background-position: 100%;
+            color: $warna-hijau-medium;
+        }
+    }
+
+    //ketika di check maka akan memilih element &-background akan menscale background
+    &-checkbox:checked ~ &-background {
+        transform: scale(80);
+    }
+    &-checkbox:checked ~ &-nav {
+        opacity: 1;
+        visibility: visible;
+        width: 100%;
+    }
+
+    //icon
+    &-icon {
+        width: 3rem;
+        height: 2px;
+        display: inline-block;
+        background: #333;
+        position: relative;
+        margin-top: 3.5rem;
+        transition: .1s all;
+        &::before,
+        &::after {
+            content: "";
+            height: 100%;
+            width: 100%;
+            display: inline-block;
+            background:  #333;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        &::before {
+            top: -1rem;
+            background: #333;
+
+        }
+        &::after {
+            top: 1rem;
+        }
+    }
+    &-checkbox:checked ~ &-button &-icon {
+        background: transparent;
+        &::before {
+            transform: rotate(135deg);
+            top: 0;
+        }
+        &::after {
+            transform: rotate(-135deg);
+            top: 0;
+        }
+
+    }
+}

@@ -1,0 +1,37 @@
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+        
+    }
+}
+
+@mixin responsive-phone {
+    @media(max-width:600px){
+        @content;
+    }
+}
+
+@mixin responsive($perangkat){
+    //untuk perangkat ponsel
+    @if $perangkat == phone {
+        @media (max-width:600px){
+            @content;
+        }
+    }
+
+    //untuk perangkat tablet portrait
+    @if $perangkat == tablet-portrait {
+        @media (max-width:900px){
+            @content;
+        }
+    }
+
+    //untuk perangkat tablet landscape
+    @if $perangkat == tablet-landscape {
+        @media (max-width:1200px){
+            @content;
+        }
+    }
+}
